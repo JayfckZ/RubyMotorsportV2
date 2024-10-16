@@ -1,15 +1,18 @@
-import Hero from './containers/Hero'
-import Main from './containers/Main'
-import NavigationBar from './containers/NavigationBar'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Home from './Pages/home'
 import { GlobalStyle } from './global'
 
 function App() {
   return (
     <>
       <GlobalStyle />
-      <Hero />
-      <NavigationBar />
-      <Main />
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/novo" element={<h1>Nova pag</h1>} />
+          <Route path="/helloworld" element={<h1>Hello World!</h1>} />
+        </Routes>
+      </Router>
     </>
   )
 }

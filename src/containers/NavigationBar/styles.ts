@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Bar = styled.div`
-  background-color: #3a0000;
+  background-color: #130000;
   color: white;
   border-bottom: 4px solid #ae0606;
 
