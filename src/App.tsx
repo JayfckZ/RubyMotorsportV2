@@ -1,5 +1,13 @@
+import Hero from './containers/Hero'
+import { GlobalStyle } from './global'
+
 function App() {
-  return <div className="App">Olá mundo</div>
+  return (
+    <>
+      <GlobalStyle />
+      <Hero />
+    </>
+  )
 }
 
 export default App
