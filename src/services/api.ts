@@ -1,16 +1,13 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import dotenv from 'dotenv'
 
-dotenv.config()
-
-const ApiLink = process.env.API
-
+const ApiLink = process.env.REACT_APP_API
+console.log(ApiLink, `https://${ApiLink}.mockapi.io/ruby-api`)
 const api = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: `https://${ApiLink}.mockapi.io/ruby-api`
   }),
   endpoints: (builder) => ({
-    getVehicles: builder.query({
+    getVehicles: builder.query<Car[], void>({
       query: () => 'vehicles'
     }),
     getCategories: builder.query({

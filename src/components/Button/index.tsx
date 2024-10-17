@@ -4,7 +4,7 @@ import { ButtonContainer, LinkContainer } from './styles'
 type props = {
   children: ReactNode
   type: 'button' | 'link'
-  to?: string
+  to?: number
 }
 
 const Button = ({ children, type, to }: props) => {

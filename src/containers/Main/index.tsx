@@ -1,17 +1,20 @@
 import { MainContainer } from './styles'
 import ListCard from '../ListCard'
+import { useGetVehiclesQuery } from '../../services/api'
 
 const Main = () => {
+  const { data: allVehicles, isLoading: isLoadingAllVehicles } =
+    useGetVehiclesQuery()
+
+  if (!allVehicles || allVehicles.length === 0) {
+    return <p>No vehicles available</p>
+  }
   return (
     <MainContainer className="container">
       <h2 className="thin">EM DESTAQUE</h2>
-      <section>
-        <ListCard />
-      </section>
       <h2 className="thin">PROMOÇÕES</h2>
-      <section></section>
       <h2 className="thin">TODOS OS VEÍCULOS</h2>
-      <section></section>
+      <ListCard isLoading={isLoadingAllVehicles} cars={allVehicles} />
     </MainContainer>
   )
 }
