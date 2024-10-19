@@ -1,20 +1,33 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-const ApiLink = process.env.REACT_APP_API
-console.log(ApiLink, `https://${ApiLink}.mockapi.io/ruby-api`)
 const api = createApi({
   baseQuery: fetchBaseQuery({
-    baseUrl: `https://${ApiLink}.mockapi.io/ruby-api`
+    baseUrl: 'https://rubyv2-api.onrender.com'
   }),
   endpoints: (builder) => ({
     getVehicles: builder.query<Car[], void>({
       query: () => 'vehicles'
     }),
-    getCategories: builder.query({
-      query: () => 'category'
+    getCategories: builder.query<Car[], string>({
+      query: (category) => `category/${category}`
+    }),
+    getOnSale: builder.query<Car[], void>({
+      query: () => 'sale'
+    }),
+    getFeatured: builder.query<Car[], void>({
+      query: () => 'featured'
+    }),
+    getCar: builder.query<Car, string>({
+      query: (id) => `vehicle/${id}`
     })
   })
 })
 
-export const { useGetVehiclesQuery, useGetCategoriesQuery } = api
+export const {
+  useGetVehiclesQuery,
+  useGetCategoriesQuery,
+  useGetOnSaleQuery,
+  useGetFeaturedQuery,
+  useGetCarQuery
+} = api
 export default api

@@ -3,8 +3,8 @@ type Car = {
   name: string
   speed: string
   price: {
-    old_price: string
-    current_price: string
+    old_price: number
+    current_price: number
   }
   images: {
     image1: string
@@ -17,4 +17,5 @@ type Car = {
   on_sale: boolean
   discount_percentage: number
   featured: boolean
+  category: string
 }
