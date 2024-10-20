@@ -30,16 +30,23 @@ export const CardContainer = styled.div`
     align-items: center;
     justify-content: space-between;
     flex-grow: 1;
+    padding: 8px;
   }
 
   p {
-    padding: 8px 0;
     font-size: 18px;
 
-    &.price {
+    &.current_price {
       text-align: end;
       font-weight: bold;
       font-size: 20px;
+    }
+
+    &.old_price {
+      text-align: end;
+      font-size: 13px;
+      text-decoration: line-through;
+      text-decoration-color: red;
     }
   }
 `

@@ -19,4 +19,20 @@ export const Tag = styled.div<props>`
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.3s ease-in-out;
+
+  .discount-text {
+    opacity: 0;
+    width: 0;
+    overflow: hidden;
+    transition:
+      width 0.9s ease-in-out,
+      opacity 0.3s ease-in-out;
+  }
+
+  &:hover .discount-text {
+    margin-left: 8px;
+    opacity: 1;
+    width: auto;
+  }
 `

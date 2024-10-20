@@ -16,6 +16,7 @@ const Tag = ({ tagType }: props) => {
   return (
     <S.Tag tagType={tagType}>
       <i className="bi bi-percent"></i>
+      <span className="discount-text"> {tagType} OFF</span>
     </S.Tag>
   )
 }

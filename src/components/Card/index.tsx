@@ -66,7 +66,10 @@ const Card = ({ id, name, price, images, infos }: CarCard) => {
       </div>
       <div className="infos">
         <p>{name}</p>
-        <p className="price">{price.current_price}</p>
+        <div className="prices">
+          {price.old_price && <p className="old_price">{price.old_price}</p>}
+          <p className="current_price">{price.current_price}</p>
+        </div>
       </div>
       <Button type="link" to={id}>
         TENHO INTERESSE
