@@ -8,6 +8,17 @@ export const CardContainer = styled.div`
     height: 220px;
   }
 
+  .images {
+    position: relative;
+
+    .tags {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+    }
+  }
+
   img {
     border-radius: 4px;
     object-fit: cover;

@@ -1,4 +1,6 @@
 import Card from '../../components/Card'
+import Loader from '../../components/Loader'
+
 import { ListContainer } from './styles'
 
 type Props = {
@@ -7,7 +9,21 @@ type Props = {
 }
 
 const ListCard = ({ cars, isLoading }: Props) => {
-  if (isLoading) return <h2>Carregando...</h2>
+  const getCarInfos = (car: Car) => {
+    const tags: string[] = []
+
+    if (car.featured) {
+      tags.push('featured')
+    }
+
+    if (car.on_sale) {
+      tags.push(`${car.discount_percentage}%`)
+    }
+
+    return tags
+  }
+
+  if (isLoading) return <Loader />
 
   return (
     <ListContainer>
@@ -19,7 +35,7 @@ const ListCard = ({ cars, isLoading }: Props) => {
             name={car.name}
             price={car.price}
             images={car.images}
-            discount_percentage={car.discount_percentage}
+            infos={getCarInfos(car)}
           />
         ))}
     </ListContainer>

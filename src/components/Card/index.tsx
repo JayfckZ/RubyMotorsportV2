@@ -2,19 +2,21 @@ import { useState } from 'react'
 import { Carousel } from 'react-responsive-carousel'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import Button from '../Button'
+import Tag from '../../components/Tag'
 
 import { CardContainer } from './styles'
 
-type CarCard = Pick<
-  Car,
-  'id' | 'name' | 'price' | 'images' | 'discount_percentage'
->
-const Card = ({ id, name, price, images, discount_percentage }: CarCard) => {
+type CarCard = Pick<Car, 'id' | 'name' | 'price' | 'images'> & {
+  infos: string[]
+}
+
+const Card = ({ id, name, price, images, infos }: CarCard) => {
   const [autoPlay, setAutoPlay] = useState(false)
 
   return (
     <CardContainer>
       <div
+        className="images"
         onMouseEnter={() => setAutoPlay(true)}
         onMouseLeave={() => setAutoPlay(false)}
       >
@@ -58,6 +60,9 @@ const Card = ({ id, name, price, images, discount_percentage }: CarCard) => {
             />
           </div>
         </Carousel>
+        <div className="tags">
+          {infos && infos.map((info) => <Tag key={info} tagType={info} />)}
+        </div>
       </div>
       <div className="infos">
         <p>{name}</p>

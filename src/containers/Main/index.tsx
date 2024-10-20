@@ -14,9 +14,6 @@ const Main = () => {
   const { data: featuredVehicles, isLoading: isLoadingFeaturedVehicles } =
     useGetFeaturedQuery()
 
-  if (!allVehicles || allVehicles.length === 0) {
-    return <p>No vehicles available</p>
-  }
   return (
     <MainContainer className="container">
       <h2 className="thin">EM DESTAQUE</h2>
